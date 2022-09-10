@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:reddit_clone/bloc/post_bloc/post_bloc.dart';
+import 'package:reddit_clone/ui/home_page.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,28 +18,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.orange,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
+      home: BlocProvider(
+        create: (context) => PostBloc(),
+        child: const HomePage(title: 'Reddit Demo'),
       ),
-      body: const Center(child: Text("Home Page")),
     );
   }
 }
