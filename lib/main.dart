@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:reddit_clone/bloc/post_bloc/post_bloc.dart';
+import 'package:reddit_clone/constants/strings.dart';
+import 'package:reddit_clone/repository/post_repository.dart';
 import 'package:reddit_clone/ui/home_page.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -19,8 +21,8 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.orange,
       ),
       home: BlocProvider(
-        create: (context) => PostBloc(),
-        child: const HomePage(title: 'Reddit Demo'),
+        create: (context) => PostBloc(postRepository: PostRepository()),
+        child: const HomePage(title: APP_NAME),
       ),
     );
   }
