@@ -1,4 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:reddit_clone/bloc/post_bloc/post_bloc.dart';
+import 'package:reddit_clone/repository/post_repository.dart';
+import 'package:reddit_clone/ui/home_page.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'constants/strings.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,33 +17,19 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.orange,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: const Center(child: Text("Home Page")),
+    return ScreenUtilInit(
+      designSize: ScreenUtil.defaultSize,
+      minTextAdapt: true,
+      builder: (BuildContext context, Widget? child) {
+        return MaterialApp(
+            debugShowCheckedModeBanner: false,
+            theme: ThemeData(
+              primarySwatch: Colors.orange,
+            ),
+            home: BlocProvider(
+                create: (context) => PostBloc(postRepository: PostRepository()),
+                child: const HomePage(title: APP_NAME)));
+      },
     );
   }
 }
