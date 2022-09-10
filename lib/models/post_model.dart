@@ -497,17 +497,17 @@ class Preview {
     this.enabled,
   });
 
-  List<Image>? images;
+  List<Img>? images;
   bool? enabled;
 
   factory Preview.fromJson(Map<String, dynamic> json) => Preview(
-        images: List<Image>.from(json["images"].map((x) => Image.fromJson(x))),
+        images: List<Img>.from(json["images"].map((x) => Img.fromJson(x))),
         enabled: json["enabled"],
       );
 }
 
-class Image {
-  Image({
+class Img {
+  Img({
     this.source,
     this.resolutions,
     this.variants,
@@ -519,7 +519,7 @@ class Image {
   Gildings? variants;
   String? id;
 
-  factory Image.fromJson(Map<String, dynamic> json) => Image(
+  factory Img.fromJson(Map<String, dynamic> json) => Img(
         source: Source.fromJson(json["source"]),
         resolutions: List<Source>.from(
             json["resolutions"].map((x) => Source.fromJson(x))),

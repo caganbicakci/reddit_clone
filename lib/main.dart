@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
           ),
           home: BlocProvider(
             create: (context) => PostBloc(postRepository: PostRepository()),
-            child: const HomePage(title: 'Reddit Clone'),
+            child: const HomePage(title: APP_NAME),
           ),
         );
       },
