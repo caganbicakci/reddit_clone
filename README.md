@@ -6,12 +6,15 @@
 It has two pages that HomePage and DetailPage also have a native splash screen while starting app. 
 BloC Pattern used for state management.
 
+
 <p float="left">
   <img src="https://user-images.githubusercontent.com/44499663/189661199-a4a9b5fc-9870-42a8-b406-aa98cc936060.png" height="30%" width="30%"/>
-  <img src="https://user-images.githubusercontent.com/44499663/189664067-01f2bc51-bc71-4297-a521-a259eb188948.png" height="30%" width="30%"/>
+  <img src="https://user-images.githubusercontent.com/44499663/189744304-b00a21a0-75ec-47c2-a8bd-9c0484ab63c2.png" height="30%" width="30%"/>
+  <img src="https://user-images.githubusercontent.com/44499663/189745782-7add7c06-77b1-473d-b1dc-be13d3863801.png" height="30%" width="30%"/>
 </p>
 
-<p float="left">  
-  <img src="https://user-images.githubusercontent.com/44499663/189661239-5a2b246f-3a6e-4914-aa7a-cd3af1bd3b12.png" height="30%" width="30%"/>
-  <img src="https://user-images.githubusercontent.com/44499663/189661277-5e13a277-d3f1-4fd2-8e12-6ab2fd628d05.png" height="30%" width="30%"/>
+<p float="left"> 
+  <img src="https://user-images.githubusercontent.com/44499663/189744412-5947ba8b-da43-4529-9fb0-3941dbc7f3cb.png" height="30%" width="30%"/>
+    <img src="https://user-images.githubusercontent.com/44499663/189746406-07b83adf-ca27-4c49-b746-610de218dc1b.png" height="30%" width="30%"/>
+  <img src="https://user-images.githubusercontent.com/44499663/189744340-6a25eab2-f37b-4460-8d1e-302058532669.png" height="30%" width="30%"/>
 </p>
