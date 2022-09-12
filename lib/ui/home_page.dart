@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:reddit_clone/constants/colors.dart';
 import 'package:reddit_clone/constants/strings.dart';
 import 'package:reddit_clone/widget/custom_app_bar.dart';
 import '../bloc/post_bloc/post_bloc.dart';

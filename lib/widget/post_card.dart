@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:reddit_clone/handler/html_handler.dart';
+import 'package:reddit_clone/constants/strings.dart';
+import 'package:reddit_clone/constants/ui_contants.dart';
+import 'package:reddit_clone/handler/url_handler.dart';
 import '../models/post_model.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
@@ -54,7 +56,7 @@ class PostCard extends StatelessWidget {
               style: Theme.of(context).textTheme.headline6),
           SizedBox(height: 16.h),
           CachedNetworkImage(
-            imageUrl: HtmlHandler.parseUrl(data: currentPost),
+            imageUrl: UrlHandler.parseImageUrl(data: currentPost),
             placeholder: (context, url) => const CircularProgressIndicator(),
             errorWidget: (context, url, error) => Container(),
           ),
@@ -74,20 +76,20 @@ class PostCard extends StatelessWidget {
       children: [
         Row(
           children: [
-            const CircleAvatar(child: Icon(Icons.person)),
+            const CircleAvatar(child: IC_PERSON),
             SizedBox(width: 16.w),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("r/${currentPost.subreddit}"),
-                Text("u/${currentPost.author}"),
+                Text("$REDDIT_SHORT${currentPost.subreddit}"),
+                Text("$USER_SHORT${currentPost.author}"),
               ],
             ),
           ],
         ),
         Row(
           children: [
-            TextButton(child: const Text("Join"), onPressed: () {}),
+            TextButton(child: const Text(JOIN), onPressed: () {}),
             const Icon(Icons.more_horiz),
             SizedBox(width: 8.w)
           ],
@@ -104,25 +106,25 @@ class PostCard extends StatelessWidget {
         children: [
           Row(
             children: [
-              const Icon(Icons.arrow_upward_rounded),
+              IC_UP,
               SizedBox(width: 8.w),
               Text(currentPost.ups.toString()),
               SizedBox(width: 8.w),
-              const Icon(Icons.arrow_downward_outlined)
+              IC_DOWN
             ],
           ),
           Row(
             children: [
-              const Icon(Icons.comment),
+              IC_COMMENT,
               SizedBox(width: 8.w),
               Text(currentPost.numComments.toString()),
             ],
           ),
           Row(
             children: [
-              const Icon(Icons.share),
+              IC_SHARE,
               SizedBox(width: 8.w),
-              const Text("Share"),
+              const Text(SHARE),
             ],
           )
         ],
