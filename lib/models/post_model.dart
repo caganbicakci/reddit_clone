@@ -32,12 +32,12 @@ class PostData {
 
 class Child {
   Child({
-    this.kind,
-    this.data,
+    required this.kind,
+    required this.data,
   });
 
-  String? kind;
-  ChildData? data;
+  String kind;
+  ChildData data;
 
   factory Child.fromJson(Map<String, dynamic> json) => Child(
         kind: json["kind"],
@@ -277,8 +277,7 @@ class ChildData {
         pwls: json["pwls"],
         linkFlairCssClass: json["link_flair_css_class"],
         downs: json["downs"],
-        thumbnailHeight:
-            json["thumbnail_height"] == null ? null : json["thumbnail_height"],
+        thumbnailHeight: json["thumbnail_height"],
         topAwardedType: json["top_awarded_type"],
         hideScore: json["hide_score"],
         name: json["name"],
@@ -289,8 +288,7 @@ class ChildData {
         subredditType: json["subreddit_type"],
         ups: json["ups"],
         totalAwardsReceived: json["total_awards_received"],
-        thumbnailWidth:
-            json["thumbnail_width"] == null ? null : json["thumbnail_width"],
+        thumbnailWidth: json["thumbnail_width"],
         authorFlairTemplateId: json["author_flair_template_id"],
         isOriginalContent: json["is_original_content"],
         userReports: List<dynamic>.from(json["user_reports"].map((x) => x)),
@@ -308,7 +306,7 @@ class ChildData {
         authorFlairCssClass: json["author_flair_css_class"],
         authorFlairRichtext:
             List<dynamic>.from(json["author_flair_richtext"].map((x) => x)),
-        postHnum: json["post_hnum"] == null ? null : json["post_hnum"],
+        postHnum: json["post_hnum"],
         contentCategories: json["content_categories"],
         isSelf: json["is_self"],
         modNote: json["mod_note"],

@@ -41,7 +41,7 @@ class _HomePageState extends State<HomePage> {
                     itemBuilder: (context, index) {
                       var currentPost = state.posts![index].data;
                       return PostCard(
-                        currentPost: currentPost!,
+                        currentPost: currentPost,
                         context: context,
                       );
                     },

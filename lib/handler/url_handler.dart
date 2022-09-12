@@ -5,10 +5,9 @@ import 'package:reddit_clone/models/post_model.dart';
 class UrlHandler {
   static parseImageUrl({required ChildData data}) {
     var preview = data.preview;
-    String url = "";
-    preview != null
-        ? url = hp.parse(preview.images.first.source.url).body!.text
-        : null;
+    var url = preview != null
+        ? hp.parse(preview.images.first.source.url).body!.text
+        : "";
 
     return url;
   }
