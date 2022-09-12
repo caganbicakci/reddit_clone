@@ -25,25 +25,27 @@ class PostDetailPage extends StatelessWidget {
           children: [
             Expanded(
               child: SingleChildScrollView(
-                child: Column(children: [
-                  CachedNetworkImage(
-                    imageUrl: UrlHandler.parseImageUrl(data: post),
-                    placeholder: (context, url) =>
-                        const CircularProgressIndicator(),
-                    errorWidget: (context, url, error) => Container(),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(16),
-                    child: Column(
-                      children: [
-                        Text(post.title!,
-                            style: Theme.of(context).textTheme.headline5),
-                        SizedBox(height: 16.h),
-                        Text(post.selftext!),
-                      ],
+                child: Column(
+                  children: [
+                    CachedNetworkImage(
+                      imageUrl: UrlHandler.parseImageUrl(data: post),
+                      placeholder: (context, url) =>
+                          const CircularProgressIndicator(),
+                      errorWidget: (context, url, error) => Container(),
                     ),
-                  ),
-                ]),
+                    Padding(
+                      padding: const EdgeInsets.all(16),
+                      child: Column(
+                        children: [
+                          Text(post.title!,
+                              style: Theme.of(context).textTheme.headline5),
+                          SizedBox(height: 16.h),
+                          Text(post.selftext!),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
             Padding(

@@ -19,7 +19,7 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
           title!,
           style: Theme.of(context)
               .textTheme
-              .headline6!
+              .titleMedium!
               .copyWith(color: Colors.white),
         ),
         backgroundColor: REDDIT_ORANGE,
