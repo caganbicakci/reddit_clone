@@ -6,9 +6,6 @@
 It has two pages that HomePage and DetailPage also have a native splash screen while starting app. 
 BloC Pattern used for state management.
 
-![Simulator Screen Shot - iPhone 12 - 2022-09-12 at 23 04 05]()
-
-
 
 <p float="left">
   <img src="https://user-images.githubusercontent.com/44499663/189661199-a4a9b5fc-9870-42a8-b406-aa98cc936060.png" height="30%" width="30%"/>
