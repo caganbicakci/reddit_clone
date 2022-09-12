@@ -15,15 +15,11 @@ class PostRepository {
     } else {
       List<Child> postData = [];
       var result = jsonDecode(response.body);
-
-      try {
-        var post = PostData.fromJson(result["data"]);
-        for (var child in post.children!) {
-          postData.add(child);
-        }
-      } catch (e) {
-        Logger().e(e.toString());
+      var post = PostData.fromJson(result["data"]);
+      for (var child in post.children) {
+        postData.add(child);
       }
+
       return postData;
     }
   }

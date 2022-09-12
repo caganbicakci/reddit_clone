@@ -6,7 +6,7 @@ class UrlHandler {
   static parseImageUrl({required ChildData data}) {
     var preview = data.preview;
     var url = preview != null
-        ? hp.parse(preview.images.first.source.url).body!.text
+        ? hp.parse(preview.images!.first.source!.url).body!.text
         : "";
 
     return url;
