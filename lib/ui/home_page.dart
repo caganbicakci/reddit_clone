@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:reddit_clone/constants/strings.dart';
+import 'package:reddit_clone/widget/custom_app_bar.dart';
 import '../bloc/post_bloc/post_bloc.dart';
 import '../widget/post_card.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key, required this.title}) : super(key: key);
-  final String title;
+  const HomePage({Key? key}) : super(key: key);
   @override
   State<HomePage> createState() => _HomePageState();
 }
@@ -16,7 +17,10 @@ class _HomePageState extends State<HomePage> {
     return SafeArea(
       top: false,
       child: Scaffold(
-        appBar: AppBar(title: Text(widget.title)),
+        appBar: CustomAppBar(
+          context: context,
+          title: APP_NAME,
+        ),
         body: BlocBuilder<PostBloc, PostState>(
           builder: (context, state) {
             if (state is PostInitial) {
@@ -35,9 +39,11 @@ class _HomePageState extends State<HomePage> {
                   child: ListView.builder(
                     itemCount: state.posts!.length,
                     itemBuilder: (context, index) {
-                      var currentPost = state.posts![index].data!;
+                      var currentPost = state.posts![index].data;
                       return PostCard(
-                          currentPost: currentPost, context: context);
+                        currentPost: currentPost!,
+                        context: context,
+                      );
                     },
                   ));
             }

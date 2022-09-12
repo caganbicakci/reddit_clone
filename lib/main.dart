@@ -23,12 +23,13 @@ class MyApp extends StatelessWidget {
       builder: (BuildContext context, Widget? child) {
         return MaterialApp(
             debugShowCheckedModeBanner: false,
+            darkTheme: ThemeData.dark(),
             theme: ThemeData(
               primarySwatch: Colors.orange,
             ),
             home: BlocProvider(
                 create: (context) => PostBloc(postRepository: PostRepository()),
-                child: const HomePage(title: APP_NAME)));
+                child: const HomePage()));
       },
     );
   }

@@ -1,7 +1,3 @@
-// To parse this JSON data, do
-//
-//     final post = postFromJson(jsonString);
-
 import 'dart:convert';
 
 PostData postFromJson(String str) => PostData.fromJson(json.decode(str));
@@ -54,7 +50,7 @@ class ChildData {
     this.approvedAtUtc,
     this.subreddit,
     this.selftext,
-    this.authorFullname,
+    required this.authorFullname,
     this.saved,
     this.modReasonTitle,
     this.gilded,
@@ -77,16 +73,13 @@ class ChildData {
     this.subredditType,
     this.ups,
     this.totalAwardsReceived,
-    this.mediaEmbed,
     this.thumbnailWidth,
     this.authorFlairTemplateId,
     this.isOriginalContent,
     this.userReports,
-    this.secureMedia,
     this.isRedditMediaDomain,
     this.isMeta,
     this.category,
-    this.secureMediaEmbed,
     this.linkFlairText,
     this.canModPost,
     this.score,
@@ -97,7 +90,6 @@ class ChildData {
     this.edited,
     this.authorFlairCssClass,
     this.authorFlairRichtext,
-    this.gildings,
     this.postHnum,
     this.contentCategories,
     this.isSelf,
@@ -142,7 +134,7 @@ class ChildData {
     this.id,
     this.isRobotIndexable,
     this.reportReasons,
-    this.author,
+    required this.author,
     this.discussionType,
     this.numComments,
     this.sendReplies,
@@ -156,9 +148,8 @@ class ChildData {
     this.stickied,
     this.url,
     this.subredditSubscribers,
-    this.createdUtc,
+    required this.createdUtc,
     this.numCrossposts,
-    this.media,
     this.isVideo,
     this.urlOverriddenByDest,
   });
@@ -166,7 +157,7 @@ class ChildData {
   dynamic approvedAtUtc;
   String? subreddit;
   String? selftext;
-  String? authorFullname;
+  String authorFullname;
   bool? saved;
   dynamic modReasonTitle;
   num? gilded;
@@ -189,16 +180,13 @@ class ChildData {
   String? subredditType;
   num? ups;
   num? totalAwardsReceived;
-  MediaEmbed? mediaEmbed;
   num? thumbnailWidth;
   dynamic authorFlairTemplateId;
   bool? isOriginalContent;
   List<dynamic>? userReports;
-  Media? secureMedia;
   bool? isRedditMediaDomain;
   bool? isMeta;
   dynamic category;
-  MediaEmbed? secureMediaEmbed;
   String? linkFlairText;
   bool? canModPost;
   num? score;
@@ -209,7 +197,6 @@ class ChildData {
   dynamic edited;
   String? authorFlairCssClass;
   List<dynamic>? authorFlairRichtext;
-  Gildings? gildings;
   String? postHnum;
   dynamic contentCategories;
   bool? isSelf;
@@ -254,7 +241,7 @@ class ChildData {
   String? id;
   bool? isRobotIndexable;
   dynamic reportReasons;
-  String? author;
+  String author;
   dynamic discussionType;
   num? numComments;
   bool? sendReplies;
@@ -268,9 +255,8 @@ class ChildData {
   bool? stickied;
   String? url;
   num? subredditSubscribers;
-  num? createdUtc;
+  num createdUtc;
   num? numCrossposts;
-  Media? media;
   bool? isVideo;
   String? urlOverriddenByDest;
 
@@ -303,19 +289,14 @@ class ChildData {
         subredditType: json["subreddit_type"],
         ups: json["ups"],
         totalAwardsReceived: json["total_awards_received"],
-        mediaEmbed: MediaEmbed.fromJson(json["media_embed"]),
         thumbnailWidth:
             json["thumbnail_width"] == null ? null : json["thumbnail_width"],
         authorFlairTemplateId: json["author_flair_template_id"],
         isOriginalContent: json["is_original_content"],
         userReports: List<dynamic>.from(json["user_reports"].map((x) => x)),
-        secureMedia: json["secure_media"] == null
-            ? null
-            : Media.fromJson(json["secure_media"]),
         isRedditMediaDomain: json["is_reddit_media_domain"],
         isMeta: json["is_meta"],
         category: json["category"],
-        secureMediaEmbed: MediaEmbed.fromJson(json["secure_media_embed"]),
         linkFlairText: json["link_flair_text"],
         canModPost: json["can_mod_post"],
         score: json["score"],
@@ -327,7 +308,6 @@ class ChildData {
         authorFlairCssClass: json["author_flair_css_class"],
         authorFlairRichtext:
             List<dynamic>.from(json["author_flair_richtext"].map((x) => x)),
-        gildings: Gildings.fromJson(json["gildings"]),
         postHnum: json["post_hnum"] == null ? null : json["post_hnum"],
         contentCategories: json["content_categories"],
         isSelf: json["is_self"],
@@ -340,8 +320,7 @@ class ChildData {
         authorFlairType: json["author_flair_type"],
         domain: json["domain"],
         allowLiveComments: json["allow_live_comments"],
-        selftextHtml:
-            json["selftext_html"] == null ? null : json["selftext_html"],
+        selftextHtml: json["selftext_html"],
         likes: json["likes"],
         suggestedSort: json["suggested_sort"],
         bannedAtUtc: json["banned_at_utc"],
@@ -390,114 +369,18 @@ class ChildData {
         subredditSubscribers: json["subreddit_subscribers"],
         createdUtc: json["created_utc"],
         numCrossposts: json["num_crossposts"],
-        media: json["media"] == null ? null : Media.fromJson(json["media"]),
         isVideo: json["is_video"],
-        urlOverriddenByDest: json["url_overridden_by_dest"] == null
-            ? null
-            : json["url_overridden_by_dest"],
-      );
-}
-
-class Gildings {
-  Gildings();
-  factory Gildings.fromJson(Map<String, dynamic> json) => Gildings();
-}
-
-class Media {
-  Media({
-    this.type,
-    this.oembed,
-  });
-
-  String? type;
-  Oembed? oembed;
-
-  factory Media.fromJson(Map<String, dynamic> json) => Media(
-        type: json["type"],
-        oembed: Oembed.fromJson(json["oembed"]),
-      );
-}
-
-class Oembed {
-  Oembed({
-    this.providerUrl,
-    this.version,
-    this.title,
-    this.type,
-    this.thumbnailWidth,
-    this.height,
-    this.width,
-    this.html,
-    this.authorName,
-    this.providerName,
-    this.thumbnailUrl,
-    this.thumbnailHeight,
-    this.authorUrl,
-  });
-
-  String? providerUrl;
-  String? version;
-  String? title;
-  String? type;
-  num? thumbnailWidth;
-  num? height;
-  num? width;
-  String? html;
-  String? authorName;
-  String? providerName;
-  String? thumbnailUrl;
-  num? thumbnailHeight;
-  String? authorUrl;
-
-  factory Oembed.fromJson(Map<String, dynamic> json) => Oembed(
-        providerUrl: json["provider_url"],
-        version: json["version"],
-        title: json["title"],
-        type: json["type"],
-        thumbnailWidth: json["thumbnail_width"],
-        height: json["height"],
-        width: json["width"],
-        html: json["html"],
-        authorName: json["author_name"],
-        providerName: json["provider_name"],
-        thumbnailUrl: json["thumbnail_url"],
-        thumbnailHeight: json["thumbnail_height"],
-        authorUrl: json["author_url"],
-      );
-}
-
-class MediaEmbed {
-  MediaEmbed({
-    this.content,
-    this.width,
-    this.scrolling,
-    this.height,
-    this.mediaDomainUrl,
-  });
-
-  String? content;
-  num? width;
-  bool? scrolling;
-  num? height;
-  String? mediaDomainUrl;
-
-  factory MediaEmbed.fromJson(Map<String, dynamic> json) => MediaEmbed(
-        content: json["content"] == null ? null : json["content"],
-        width: json["width"] == null ? null : json["width"],
-        scrolling: json["scrolling"] == null ? null : json["scrolling"],
-        height: json["height"] == null ? null : json["height"],
-        mediaDomainUrl:
-            json["media_domain_url"] == null ? null : json["media_domain_url"],
+        urlOverriddenByDest: json["url_overridden_by_dest"],
       );
 }
 
 class Preview {
   Preview({
-    this.images,
+    required this.images,
     this.enabled,
   });
 
-  List<Img>? images;
+  List<Img> images;
   bool? enabled;
 
   factory Preview.fromJson(Map<String, dynamic> json) => Preview(
@@ -508,34 +391,31 @@ class Preview {
 
 class Img {
   Img({
-    this.source,
+    required this.source,
     this.resolutions,
-    this.variants,
     this.id,
   });
 
-  Source? source;
+  Source source;
   List<Source>? resolutions;
-  Gildings? variants;
   String? id;
 
   factory Img.fromJson(Map<String, dynamic> json) => Img(
         source: Source.fromJson(json["source"]),
         resolutions: List<Source>.from(
             json["resolutions"].map((x) => Source.fromJson(x))),
-        variants: Gildings.fromJson(json["variants"]),
         id: json["id"],
       );
 }
 
 class Source {
   Source({
-    this.url,
+    required this.url,
     this.width,
     this.height,
   });
 
-  String? url;
+  String url;
   num? width;
   num? height;
 
