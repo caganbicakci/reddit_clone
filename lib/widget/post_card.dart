@@ -56,8 +56,9 @@ class PostCard extends StatelessWidget {
               style: Theme.of(context).textTheme.headline6),
           SizedBox(height: 16.h),
           CachedNetworkImage(
-            imageUrl: UrlHandler.parseImageUrl(data: currentPost),
-            placeholder: (context, url) => const CircularProgressIndicator(),
+            imageUrl: UrlHandler.parseImageUrl(data: currentPost)!,
+            placeholder: (context, url) =>
+                const Center(child: CircularProgressIndicator()),
             errorWidget: (context, url, error) => Container(),
           ),
           Text(

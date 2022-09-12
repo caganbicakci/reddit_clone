@@ -14,7 +14,7 @@ class CustomButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: function,
       style: ElevatedButton.styleFrom(
-        primary: REDDIT_ORANGE,
+        backgroundColor: REDDIT_ORANGE,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(24),
         ),

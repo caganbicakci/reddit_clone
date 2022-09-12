@@ -5,8 +5,6 @@ import 'package:reddit_clone/repository/post_repository.dart';
 import 'package:reddit_clone/ui/home_page.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'constants/strings.dart';
-
 void main() {
   runApp(const MyApp());
 }
